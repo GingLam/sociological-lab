@@ -1,0 +1,7 @@
+[build]
+publish = "public"
+command = 'hugo --gc --minify --baseURL "${URL}"'
+
+[build.environment]
+HUGO_VERSION = "0.154.5"
+TZ = "Asia/Shanghai"

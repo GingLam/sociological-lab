@@ -1,0 +1,22 @@
+{{/* 首页分页也可能直接展示文章代码块，因此同样加载代码块工具栏。 */}}
+{{ if or .IsHome (and .IsPage (.Store.Get "codeblock")) }}
+  {{ partial "_funs/get_plugin.html" (dict "ctx" . "class" "others" "plugin" "clipboard.js") }}
+{{ end }}
+
+{{/* 其余按页插件仍只在独立内容页加载。 */}}
+{{ if .IsPage }}
+
+{{/** Short code params **/}}
+{{ $scParam := .Store.Get "scParams" }}
+
+{{/** Append math render action **/}}
+{{ if or .Params.math .Site.Params.math }}
+  {{ partial "_funs/get_plugin.html" (dict "ctx" . "class" "others" "plugin" "math.js") }}
+{{ end }}
+
+{{/** Append mermaid render action **/}}
+{{ if $scParam.mermaid }}
+  {{ partial "_funs/get_plugin.html" (dict "ctx" . "class" "others" "plugin" "mermaid.js") }}
+{{ end }}
+
+{{ end }}

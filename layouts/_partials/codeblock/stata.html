@@ -1,0 +1,3 @@
+{{- $highlighted := transform.Highlight .code "text" "lineNos=table,anchorLineNos=false" -}}
+{{- $highlighted = replace $highlighted `class="language-text" data-lang="text"` `class="language-stata" data-lang="stata"` -}}
+{{- $highlighted | safeHTML -}}

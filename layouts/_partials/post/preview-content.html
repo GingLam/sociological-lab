@@ -1,0 +1,32 @@
+{{- $content := string .content -}}
+{{- $pageBase := .page.RelPermalink -}}
+
+{{- /*
+  首页及其分页会把多篇文章嵌入同一页面。文章中的相对图片地址必须
+  以原文章永久链接为基准，否则浏览器会错误地从首页根目录解析。
+*/ -}}
+{{- range $imageMatch := findRESubmatch `(?is)<img\b[^>]*>` $content -}}
+  {{- $imageTag := index $imageMatch 0 -}}
+  {{- range $attributeName := slice "src" "data-src" -}}
+    {{- $attributePattern := printf `(?i)((?:^|\s)%s\s*=\s*)(["'])([^"']+)(["'])` $attributeName -}}
+    {{- $sourceMatches := findRESubmatch $attributePattern $imageTag -}}
+    {{- if gt (len $sourceMatches) 0 -}}
+      {{- $sourceMatch := index $sourceMatches 0 -}}
+      {{- $source := index $sourceMatch 3 -}}
+      {{- $hasScheme := gt (len (findRE `^[A-Za-z][A-Za-z0-9+.-]*:` $source)) 0 -}}
+      {{- $isAbsolute := or (strings.HasPrefix $source "/") (strings.HasPrefix $source "#") $hasScheme -}}
+      {{- if and $source (not $isAbsolute) -}}
+        {{- $oldAttribute := index $sourceMatch 0 -}}
+        {{- $attributePrefix := index $sourceMatch 1 -}}
+        {{- $quote := index $sourceMatch 2 -}}
+        {{- $newSource := printf "%s%s" $pageBase $source -}}
+        {{- $newAttribute := printf "%s%s%s%s" $attributePrefix $quote $newSource $quote -}}
+        {{- $newImageTag := replace $imageTag $oldAttribute $newAttribute 1 -}}
+        {{- $content = replace $content $imageTag $newImageTag 1 -}}
+        {{- $imageTag = $newImageTag -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $content | safeHTML -}}

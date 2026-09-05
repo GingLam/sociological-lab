@@ -1,0 +1,9 @@
+{{ with .Params.tags }}
+<div class="post-tags">
+  {{ range . }}
+  <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">
+    <img class="post-tag-icon" src="{{ "imgs/BookMark.png" | relURL }}" alt="" aria-hidden="true">{{ . }}
+  </a>
+  {{ end }}
+</div>
+{{ end }}

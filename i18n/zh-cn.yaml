@@ -1,0 +1,2 @@
+Terms:
+  archives: "目前共计 <strong>{{ .Count }}</strong> 篇文章"

@@ -1,0 +1,443 @@
+/** Custom style defined file **/
+
+.mydefined {
+  font-size: 0.65em;
+  color: #ed6c24;
+}
+
+.custom-head5 {
+  font-size: 1.2em;
+  color: #ed6c24;
+  font-weight: bold;
+}
+
+/* 印象笔记导入的 Stata 博文：只调整呈现，不改动原始正文与图片。 */
+.yinxiang-note {
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.yinxiang-note ul,
+.yinxiang-note ol {
+  margin-block: 0.55em;
+  padding-inline-start: 1.65em;
+}
+
+.yinxiang-note li + li {
+  margin-top: 0.28em;
+}
+
+.yinxiang-note img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.15em auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
+}
+
+.yinxiang-note a {
+  overflow-wrap: anywhere;
+}
+
+.yinxiang-note .highlight {
+  margin-block: 1.25em;
+}
+
+/* Stata 代码块沿用 NexT 的 macOS 标题栏，并补充官方词法器的配色。 */
+.highlight > .code-header.language-stata .code-lang::after {
+  content: "Stata";
+}
+
+.highlight > .code-header.language-spss .code-lang::after {
+  content: "SPSS";
+}
+
+.language-stata.hljs,
+.language-spss.hljs {
+  color: #f8f8f2;
+  background: transparent;
+}
+
+.language-stata .hljs-comment,
+.language-stata .hljs-quote,
+.language-spss .hljs-comment,
+.language-spss .hljs-quote {
+  color: #8f9b87;
+  font-style: italic;
+}
+
+.language-stata .hljs-keyword,
+.language-stata .hljs-selector-tag,
+.language-stata .hljs-meta,
+.language-spss .hljs-keyword,
+.language-spss .hljs-selector-tag,
+.language-spss .hljs-meta {
+  color: #f92672;
+}
+
+.language-stata .hljs-built_in,
+.language-stata .hljs-type,
+.language-stata .hljs-literal,
+.language-spss .hljs-built_in,
+.language-spss .hljs-type,
+.language-spss .hljs-literal {
+  color: #66d9ef;
+}
+
+.language-stata .hljs-string,
+.language-stata .hljs-regexp,
+.language-stata .hljs-symbol,
+.language-spss .hljs-string,
+.language-spss .hljs-regexp,
+.language-spss .hljs-symbol {
+  color: #e6db74;
+}
+
+.language-stata .hljs-number,
+.language-stata .hljs-variable,
+.language-stata .hljs-template-variable,
+.language-spss .hljs-number,
+.language-spss .hljs-variable,
+.language-spss .hljs-template-variable {
+  color: #ae81ff;
+}
+
+.language-stata .hljs-title,
+.language-stata .hljs-function,
+.language-stata .hljs-params,
+.language-spss .hljs-title,
+.language-spss .hljs-function,
+.language-spss .hljs-params {
+  color: #a6e22e;
+}
+
+/* SPSS 讲义沿用原有人工章节号；侧栏目录不再重复生成数字。 */
+.post-toc.toc-unnumbered a::before {
+  content: none !important;
+  counter-increment: none !important;
+}
+
+/* 文章页脚统一为黑、白、灰配色。 */
+.post-copyright {
+  border-left-color: #222 !important;
+}
+
+.reward-container button {
+  color: #555 !important;
+  background: transparent !important;
+  border-color: #777 !important;
+}
+
+.reward-container button:hover {
+  color: #fff !important;
+  background-color: #333 !important;
+  border-color: #333 !important;
+}
+
+:root[data-theme="dark"] .reward-container button {
+  color: #ddd !important;
+  border-color: #aaa !important;
+}
+
+:root[data-theme="dark"] .reward-container button:hover {
+  color: #fff !important;
+  background-color: #111 !important;
+  border-color: #777 !important;
+}
+
+/* 右下角工具按钮：悬停时只加深底色，图标保持白色。 */
+.tool-buttons .button:hover,
+.tool-buttons .back-to-top:hover {
+  color: #fff !important;
+  background-color: #111 !important;
+  opacity: 1;
+}
+
+/* 语言菜单外仅保留一个中性翻译图标，选项内部不再重复显示。 */
+.footer .i18n-translate {
+  align-items: center;
+  gap: 6px;
+}
+
+.footer .i18n-translate .language-switch-icon {
+  display: inline-block;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  background-image: url("/imgs/language-switch.png") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+:root[data-theme="dark"] .footer .i18n-translate .language-switch-icon {
+  filter: invert(1);
+}
+
+/* 统一左侧菜单、文章正文和文章标题字号；元信息保持主题原值。 */
+.site-subtitle,
+.menu-item > a,
+.menu-child-item > a {
+  font-size: 15px;
+}
+
+.posts-expand .post-body {
+  font-size: 15px;
+}
+
+/* 覆盖印象笔记残留的局部 14/15/16px 行内字号，使导入正文统一为 15px。 */
+.posts-expand .post-body .yinxiang-note [style*="font-size"] {
+  font-size: 15px !important;
+}
+
+.posts-expand .post-title {
+  font-size: 20px;
+}
+
+/* 单篇文章总标题加粗；首页预览标题保持原有字重。 */
+.posts-expand:not(.index) .post-title {
+  font-weight: 700;
+}
+
+/* 单篇文章二级标题与文章总标题统一为 20px；适用于既有及新增博文。 */
+.posts-expand:not(.index) .post-body h2 {
+  font-size: 20px;
+}
+
+/* 页码预留透明四边框，悬停时显示完整黑色方框且不发生位移。 */
+.pagination .page-number {
+  border: 1px solid transparent;
+  border-top-color: #eee;
+}
+
+.pagination .page-number:hover {
+  border-color: #000;
+}
+
+/* 桌面端分类页较短时，由文章清单卡片填满剩余高度，避免分页前出现大块空白。 */
+@media (min-width: 992px) {
+  .main-inner.categories.posts-collapse {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-inner.categories.posts-collapse > .post-block {
+    flex: 1 0 auto;
+  }
+
+  .main-inner.categories.posts-collapse > .pagination {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pagination .page-number {
+    border-top-color: transparent;
+    border-bottom-color: #eee;
+  }
+
+  .pagination .page-number:hover {
+    border-color: #000;
+  }
+}
+
+/* 文章页脚使用完整实线分隔，不显示主题默认的结束语。 */
+.post-footer > hr {
+  width: 100%;
+  height: 0;
+  margin: 24px 0 12px;
+  border: 0;
+  border-bottom: 1px solid #999;
+}
+
+.post-footer > hr::after {
+  content: none !important;
+  padding: 0;
+}
+
+:root[data-theme="dark"] .post-footer > hr {
+  border-bottom-color: #666;
+}
+
+/* 分享按钮沿用 AddToAny 的服务类和点击逻辑，仅替换为站点内的单色 SVG。 */
+.post-share-tools .custom-share-kit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.post-share-tools .custom-share-kit .custom-share-button {
+  display: inline-flex !important;
+  float: none !important;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box !important;
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+  color: #555 !important;
+  background: transparent !important;
+  border: 0 !important;
+  cursor: pointer;
+  opacity: 1 !important;
+}
+
+.post-share-tools .custom-share-kit .custom-share-button::before {
+  content: "";
+  display: block;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  background-color: currentColor;
+  -webkit-mask-image: var(--share-icon);
+  mask-image: var(--share-icon);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 28px 28px;
+  mask-size: 28px 28px;
+}
+
+/* AddToAny 加载后会注入原始彩色图标；将其隐藏，但保留事件绑定。 */
+.post-share-tools .custom-share-button .a2a_svg,
+.post-share-tools .custom-share-button .a2a_label {
+  display: none !important;
+}
+
+.post-share-tools .custom-share-kit .custom-share-button:hover {
+  color: #222 !important;
+}
+
+:root[data-theme="dark"] .post-share-tools .custom-share-kit .custom-share-button {
+  color: #ccc !important;
+}
+
+:root[data-theme="dark"] .post-share-tools .custom-share-kit .custom-share-button:hover {
+  color: #fff !important;
+}
+
+/* 侧栏只重设激活态；未选中的标签与非当前章节继续使用主题默认样式。 */
+.sidebar-toc-active .sidebar-nav-toc,
+.sidebar-overview-active .sidebar-nav-overview {
+  color: #222 !important;
+  border-bottom-color: #222 !important;
+  font-weight: 700;
+}
+
+.sidebar-toc-active .sidebar-nav-toc:hover,
+.sidebar-overview-active .sidebar-nav-overview:hover {
+  color: #222 !important;
+  border-bottom-color: #222 !important;
+}
+
+.post-toc .active-current,
+.post-toc .nav .active > a {
+  color: #222 !important;
+  font-weight: 700;
+}
+
+.post-toc .active-current:hover,
+.post-toc .nav .active > a:hover {
+  color: #222 !important;
+}
+
+:root[data-theme="dark"] .sidebar-toc-active .sidebar-nav-toc,
+:root[data-theme="dark"] .sidebar-overview-active .sidebar-nav-overview {
+  color: #eee !important;
+  border-bottom-color: #eee !important;
+}
+
+:root[data-theme="dark"] .sidebar-toc-active .sidebar-nav-toc:hover,
+:root[data-theme="dark"] .sidebar-overview-active .sidebar-nav-overview:hover,
+:root[data-theme="dark"] .post-toc .active-current,
+:root[data-theme="dark"] .post-toc .active-current:hover,
+:root[data-theme="dark"] .post-toc .nav .active > a,
+:root[data-theme="dark"] .post-toc .nav .active > a:hover {
+  color: #eee !important;
+}
+
+/* 目录标签和章节标题仅在悬停时使用黑色加粗；移开后恢复原状态。 */
+.sidebar-nav li:hover,
+.post-toc a:hover {
+  color: #222 !important;
+  font-weight: 700;
+}
+
+.sidebar-nav li:hover {
+  border-bottom-color: #222 !important;
+}
+
+:root[data-theme="dark"] .sidebar-nav li:hover,
+:root[data-theme="dark"] .post-toc a:hover {
+  color: #eee !important;
+}
+
+:root[data-theme="dark"] .sidebar-nav li:hover {
+  border-bottom-color: #eee !important;
+}
+
+/* 左侧“文章”子菜单加快展开与收起，但不改变原有折叠逻辑。 */
+.menu-children,
+.menu-children.expand {
+  transition: max-height 0.35s ease-in-out !important;
+}
+
+/* 语言选择器与版权信息作为一个整体，在文章内容区域内水平居中。 */
+.footer {
+  padding: 20px 0 90px;
+}
+
+.footer-inner {
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 16px;
+  row-gap: 10px;
+}
+
+.footer-inner > .i18n-translate {
+  order: 1;
+}
+
+.footer-inner > .copyright {
+  order: 2;
+  white-space: nowrap;
+}
+
+.footer .i18n-translate .lang-select {
+  margin-left: 0;
+}
+
+/* 清除移除国旗后遗留的固定宽度与选项空位。 */
+.footer .i18n-translate .lang-select .selected-option {
+  box-sizing: border-box;
+  width: 112px;
+}
+
+.footer .i18n-translate .lang-select .lang-options .lang-option {
+  justify-content: center;
+  padding: 5px 8px;
+}
+
+.footer .i18n-translate .lang-select .lang-options .lang-option .lang-name {
+  margin: 0;
+}
+
+/* 使用指定图片替换文章标签前的主题书签字符。 */
+.post-tags a::before {
+  content: none !important;
+}
+
+.post-tags .post-tag-icon {
+  display: inline-block;
+  width: auto;
+  height: 1.25em;
+  max-width: none;
+  margin: 0 0.2em 0 0;
+  object-fit: contain;
+  vertical-align: -0.2em;
+}

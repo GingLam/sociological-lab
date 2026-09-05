@@ -1,0 +1,46 @@
+{{ with .ctx }}
+{{ if $.IsHome }}
+  {{ if .Params.Expand }}
+    {{ partial "post/preview-content.html" (dict "content" .Content "page" .) }}
+  {{ else }}
+    {{/* 统一使用 Hugo 富摘要，保留完整段落、列表、图片和代码块。 */}}
+    {{ partial "post/preview-content.html" (dict "content" .Summary "page" .) }}
+  {{ end }}
+{{ else }}
+  {{/** Post expired tip message **/}}
+  {{ $expired := default .Site.Params.PostMeta.expired .Params.Expired }}
+  {{ if $expired }}
+  <div class="post-expired-tip" id="post-expired-tip">
+    <div class="post-expired-title">
+      <i class="fa-solid fa-hourglass-half"></i>
+      <span>{{ T "PostMeta.expired.title" }}</span>
+    </div>
+    <div id="post-expired-content" class="post-expired-content"></div>
+  </div>
+  {{ end }}
+  {{/** Post summary **/}}
+  {{ if .Site.Params.PostMeta.summary }}
+  {{ with .Params.Description }}
+  <div class="post-summary-wrapper">
+    <div class="summary-title">
+      <span><i class="fa-solid fa-list"></i></span>
+      <span>{{ T "PostMeta.summary.title" }}</span>
+    </div>
+    <div class="summary-content">
+      {{ . }}
+    </div>
+  </div>
+  {{ end }}
+  {{ end }}
+  {{/** Front matter 中的独立摘要只用于列表页，阅读全文时不得与正文重复。 **/}}
+  {{ if isset .Params "summary" }}
+    <a id="more"></a>
+    {{ .Content }}
+  {{ else }}
+    {{/** 手动 <!--more--> 摘要仍在原分隔位置保留锚点。 **/}}
+    {{ .Summary }}
+    <a id="more"></a>
+    {{ .ContentWithoutSummary }}
+  {{ end }}
+{{ end }}
+{{ end }}

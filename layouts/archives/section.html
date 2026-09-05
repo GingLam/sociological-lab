@@ -1,0 +1,18 @@
+{{ define "title" }}
+{{ .Params.Title | default (T .Section) | default .Section | dict "Some" | T "AllSome" }} - {{ .Site.Title }}
+{{ end }}
+{{ define "main_inner_class" }}archive posts-collapse{{ end }}
+{{ define "main" }}
+<div class="post-block">
+  <div class="post-content">
+    <div class="collection-title">
+      {{ $posts := .Scratch.Get "postsCount" }}
+      <span class="collection-header">{{ T "Terms.archives" $posts | safeHTML }}</span>
+    </div>
+
+    {{ .Render "list" }}
+
+  </div>
+</div>
+{{ partial "pagination.html" . }}
+{{ end }}
