@@ -1,5 +1,10 @@
 /** Custom style defined file **/
 
+/* 浅色模式加深页面底色，白色内容卡片继续使用主题的独立背景色。 */
+:root {
+  --body-bg-color: #e5e5e5;
+}
+
 .mydefined {
   font-size: 0.65em;
   color: #ed6c24;
