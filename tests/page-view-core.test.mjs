@@ -7,6 +7,7 @@ import {
   normalizePageKey,
   RequestValidationError
 } from '../netlify/functions/_shared/page-view-core.mjs';
+import { createUpstashPageViewStore } from '../netlify/functions/_shared/upstash-page-view-store.mjs';
 
 const makeRequest = (body, method = 'POST') => new Request('https://example.netlify.app/api/page-view', {
   method,
@@ -14,17 +15,15 @@ const makeRequest = (body, method = 'POST') => new Request('https://example.netl
   body: method === 'POST' ? JSON.stringify(body) : undefined
 });
 
-const makeDatabase = ({ viewCount = 1363, fail = false } = {}) => {
+const makeIncrementer = ({ viewCount = 1363, fail = false } = {}) => {
   const calls = [];
-  const database = {
-    sql: async (strings, ...values) => {
-      calls.push({ query: strings.join('?'), values });
+  const incrementPageView = async input => {
+      calls.push(input);
       if (fail) throw new Error('Simulated database failure.');
-      return [{ page_key: values[0], view_count: String(viewCount) }];
-    }
+      return viewCount;
   };
 
-  return { calls, database };
+  return { calls, incrementPageView };
 };
 
 test('normalizePageKey removes query strings and adds a post trailing slash', () => {
@@ -46,9 +45,9 @@ test('initialCountFor follows all configured baseline ranges', () => {
 });
 
 test('handler atomically creates or increments the about page count', async () => {
-  const { calls, database } = makeDatabase({ viewCount: 1363 });
+  const { calls, incrementPageView } = makeIncrementer({ viewCount: 1363 });
   const handler = createPageViewHandler({
-    getDatabase: () => database,
+    incrementPageView,
     random: () => 0.5
   });
 
@@ -60,14 +59,16 @@ test('handler atomically creates or increments the about page count', async () =
 
   assert.equal(response.status, 200);
   assert.deepEqual(body, { pageKey: '/about.html', viewCount: 1363 });
-  assert.deepEqual(calls[0].values, ['/about.html', 'about', 1362, 1363]);
-  assert.match(calls[0].query, /ON CONFLICT \(page_key\) DO UPDATE/);
-  assert.match(calls[0].query, /page_views\.view_count \+ 1/);
+  assert.deepEqual(calls[0], {
+    pageKey: '/about.html',
+    pageType: 'about',
+    initialCount: 1362
+  });
 });
 
 test('handler rejects invalid method, type, and page combinations', async () => {
-  const { database } = makeDatabase();
-  const handler = createPageViewHandler({ getDatabase: () => database });
+  const { incrementPageView } = makeIncrementer();
+  const handler = createPageViewHandler({ incrementPageView });
 
   const methodResponse = await handler(makeRequest(undefined, 'GET'));
   assert.equal(methodResponse.status, 405);
@@ -87,9 +88,9 @@ test('handler rejects invalid method, type, and page combinations', async () => 
 });
 
 test('handler accepts system archive articles under the demo path', async () => {
-  const { database } = makeDatabase({ viewCount: 1301 });
+  const { incrementPageView } = makeIncrementer({ viewCount: 1301 });
   const handler = createPageViewHandler({
-    getDatabase: () => database,
+    incrementPageView,
     random: () => 0
   });
   const response = await handler(makeRequest({
@@ -103,8 +104,8 @@ test('handler accepts system archive articles under the demo path', async () => 
 });
 
 test('handler returns 503 without exposing a database error', async () => {
-  const { database } = makeDatabase({ fail: true });
-  const handler = createPageViewHandler({ getDatabase: () => database });
+  const { incrementPageView } = makeIncrementer({ fail: true });
+  const handler = createPageViewHandler({ incrementPageView });
   const response = await handler(makeRequest({
     pageKey: '/post/example/',
     pageType: 'post'
@@ -113,4 +114,51 @@ test('handler returns 503 without exposing a database error', async () => {
 
   assert.equal(response.status, 503);
   assert.deepEqual(body, { error: 'Page view service is temporarily unavailable.' });
+});
+
+test('Upstash store initializes and increments a page count atomically', async () => {
+  const calls = [];
+  const fetchImpl = async (url, options) => {
+    calls.push({ url, options });
+    return Response.json({ result: 1363 });
+  };
+  const store = createUpstashPageViewStore({
+    url: 'https://example.upstash.io/',
+    token: 'test-token',
+    fetchImpl
+  });
+
+  const viewCount = await store.incrementPageView({
+    pageKey: '/about.html',
+    pageType: 'about',
+    initialCount: 1362
+  });
+
+  assert.equal(viewCount, 1363);
+  assert.equal(calls[0].url, 'https://example.upstash.io');
+  assert.equal(calls[0].options.method, 'POST');
+  assert.equal(calls[0].options.headers.Authorization, 'Bearer test-token');
+  const command = JSON.parse(calls[0].options.body);
+  assert.equal(command[0], 'EVAL');
+  assert.equal(command[2], '1');
+  assert.equal(command[3], 'page-view:/about.html');
+  assert.equal(command[4], '1362');
+});
+
+test('Upstash store rejects missing credentials and invalid responses', async () => {
+  assert.throws(
+    () => createUpstashPageViewStore({ url: '', token: '' }),
+    /UPSTASH_REDIS_REST_URL/
+  );
+
+  const store = createUpstashPageViewStore({
+    url: 'https://example.upstash.io',
+    token: 'test-token',
+    fetchImpl: async () => Response.json({ error: 'ERR test' }, { status: 400 })
+  });
+
+  await assert.rejects(
+    () => store.incrementPageView({ pageKey: '/post/example/', initialCount: 1300 }),
+    /Upstash request failed/
+  );
 });

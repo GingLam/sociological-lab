@@ -7,8 +7,5 @@
   },
   "scripts": {
     "test": "node --test tests/page-view-core.test.mjs"
-  },
-  "dependencies": {
-    "@netlify/database": "2.0.1"
   }
 }

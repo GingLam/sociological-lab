@@ -92,9 +92,9 @@ const parseRequestBody = async request => {
   return body;
 };
 
-export const createPageViewHandler = ({ getDatabase, random = Math.random }) => {
-  if (typeof getDatabase !== 'function') {
-    throw new TypeError('getDatabase must be a function.');
+export const createPageViewHandler = ({ incrementPageView, random = Math.random }) => {
+  if (typeof incrementPageView !== 'function') {
+    throw new TypeError('incrementPageView must be a function.');
   }
 
   return async request => {
@@ -113,31 +113,13 @@ export const createPageViewHandler = ({ getDatabase, random = Math.random }) => 
       validatePageTypeAndKey(pageType, pageKey);
 
       const initialCount = initialCountFor(pageType, random);
-      const database = getDatabase();
-      // One UPSERT keeps initialization and increments atomic under concurrent visits.
-      const rows = await database.sql`
-        INSERT INTO page_views (
-          page_key,
-          page_type,
-          initial_count,
-          view_count
-        )
-        VALUES (
-          ${pageKey},
-          ${pageType},
-          ${initialCount},
-          ${initialCount + 1}
-        )
-        ON CONFLICT (page_key) DO UPDATE
-        SET
-          view_count = page_views.view_count + 1,
-          updated_at = NOW()
-        RETURNING page_key, view_count;
-      `;
-
-      const viewCount = Number(rows?.[0]?.view_count);
+      const viewCount = Number(await incrementPageView({
+        pageKey,
+        pageType,
+        initialCount
+      }));
       if (!Number.isSafeInteger(viewCount) || viewCount < 0) {
-        throw new Error('Database returned an invalid view count.');
+        throw new Error('Counter store returned an invalid view count.');
       }
 
       return jsonResponse({ pageKey, viewCount });
