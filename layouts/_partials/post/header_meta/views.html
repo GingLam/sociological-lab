@@ -1,0 +1,28 @@
+{{ if .Site.Params.postMeta.views.enable }}
+{{ $pageType := "post" }}
+{{ if hasSuffix .RelPermalink "/about.html" }}
+  {{ $pageType = "about" }}
+{{ else }}
+  {{ range .Params.categories }}
+    {{ if or (eq . "软件应用-SPSS") (eq . "SPSS软件应用") }}
+      {{ $pageType = "spss" }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+<span class="post-meta-item" title="{{ T "PostMeta.views" }}">
+  <span class="post-meta-item-icon">
+    <i class="fas fa-solid fa-eye"></i>
+  </span>
+  <span class="post-meta-item-text">
+  {{ print (T "PostMeta.views") (T "Symbol.colon") }}
+  </span>
+  <span
+    class="js-page-view-count"
+    data-page-key="{{ .RelPermalink }}"
+    data-page-type="{{ $pageType }}"
+    aria-live="polite"
+    aria-label="{{ T "PostMeta.views" }}">
+    <i class="fa fa-sync fa-spin" aria-hidden="true"></i>
+  </span>
+</span>
+{{ end }}

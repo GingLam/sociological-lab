@@ -4,4 +4,9 @@ command = 'hugo --gc --minify --baseURL "${URL}"'
 
 [build.environment]
 HUGO_VERSION = "0.154.5"
+NODE_VERSION = "22.12.0"
 TZ = "Asia/Shanghai"
+
+[functions]
+directory = "netlify/functions"
+node_bundler = "esbuild"

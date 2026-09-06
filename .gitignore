@@ -2,6 +2,7 @@
 /public/
 /resources/_gen/
 /.hugo_build.lock
+/node_modules/
 
 # macOS 目录元数据
 .DS_Store

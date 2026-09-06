@@ -1,0 +1,14 @@
+{
+  "name": "sociological-lab",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "test": "node --test tests/page-view-core.test.mjs"
+  },
+  "dependencies": {
+    "@netlify/database": "2.0.1"
+  }
+}
