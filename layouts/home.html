@@ -1,0 +1,21 @@
+{{ define "main_inner_class" }}index posts-expand{{ end }}
+
+{{ define "main" }}
+{{ if eq .Site.Language.Lang "zh-cn" }}
+  {{/* 中文站点默认进入简介；文章列表保留在 /post/。 */}}
+  {{ $target := "/about.html" | relURL }}
+  <script>window.location.replace({{ $target | jsonify | safeJS }});</script>
+  <div class="post-block">
+    <article class="post-content">
+      <p>正在进入<a href="{{ $target }}">简介</a>……</p>
+    </article>
+  </div>
+{{ else }}
+  {{/* 英文简介已停用，因此英文主页继续显示文章列表。 */}}
+  {{ $paginator := .Paginate (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) }}
+  {{ range $paginator.Pages }}
+    {{ partial "post.html" (dict "ctx" . "IsHome" true) }}
+  {{ end }}
+  {{ partial "pagination.html" . }}
+{{ end }}
+{{ end }}

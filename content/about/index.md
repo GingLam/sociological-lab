@@ -1,29 +1,98 @@
 ---
-title: "关于 Hugo NexT 组织"
+title: "林景 Jing LIN"
 
 date: 2022-06-09T20:12:52+08:00
 lastmod: 2022-06-09T20:12:52+08:00
 
+math: mathjax
+tocnumber: false
+hidefooterline: true
 share: false
+reward: false
 followme: false
 nav: false
 copyright: false
 url: about.html
 ---
 
-`Hugo NexT` 组织是由众多喜爱 `NexT` 主题及风格的世界各地友人共同组建而成，为的就是让这个主题继续在 `Hugo` 引擎中也能得到发扬光大，在此也欢迎你的加入！
+<figure class="about-profile-photo">
+  <img src="/imgs/personal.jpg" alt="林景个人照片" loading="eager" decoding="async">
+</figure>
 
-# 我们的愿景
+工作邮箱：linjing [AT] nufe.edu.cn<br>
+研究方向：城市就业风险、组织技术变革、公共政策评估
 
-延续 `NexT` 经典的黑白调搭配，保持简单的易用性及强大的功能。
+## 工作经历
 
-# 使用反馈
+- 2019年7月至今，南京财经大学法学院讲师、社会工作系副主任
+- 2023年12月至今，南京市雨花台区城市治理委员会专家委员
 
-- 加入 [GitHub Discussions](https://github.com/hugo-next/hugo-theme-next/discussions) 或 [Gitter](https://gitter.im/hugo-next/community) 在线讨论 :beers:
-- [GitHub Issues](https://github.com/hugo-next/hugo-theme-next/issues/new?labels=Bug&template=bug-report.md) 提交错误报告 :bug:
-- [GitHub Feature](https://github.com/hugo-next/hugo-theme-next/issues/new?labels=Feature+Request&template=feature-request.md) 表新功能的想法 :sparkles:
+## 教育经历
 
-> [!INFO]
-> 同时国内用户也可加入 QQ 群交流： 604710815
+- 2016年6月至2019年6月，中山大学社会学博士
+- 2013年6月至2016年6月，武汉大学社会学硕士
+- 2009年6月至2013年6月，华南农业大学社会学学士
 
-{{< music url="/music/sky.mp3" name="天空之城" artist="宫崎骏" cover="/music/gongqijun.jpg" autoplay="true" >}}
+## 主讲课程
+
+- 2025年9月至今，《社会研究方法》，研究生专业基础课
+- 2025年2月至今，《社会统计学》，本科生专业基础课
+- 2024年2月至今，《社会调查与研究方法》，本科生通识课
+- 2020年2月至今，《社会统计软件分析与应用》，本科生专业课
+- 2020年2月至2023年6月，《法学定量分析专题》，本科生专业选修课
+- 2019年9月至2019年12月，《社会科学研究方法》，本科生公共基础课
+
+## 学术论文
+
+- 2026年，《视觉数字媒介融入社会工作教育的理念、经验及本土化进路》，《艺术教育》，第一作者，合作者：甘诺。
+- 2024年，“How Temporary Employment Relates to Community Health Services Utilization: Evidence from China Migrants Dynamic Survey”，*Journal of Social Service Research*，SSCI二区，第一作者，合作者：Long HAO。
+- 2023年，“Bad Jobs on the Rise? Age, Period, and Cohort Effects on Low-Paid Work in Hong Kong, 1986–2016”，*Social Indicators Research*，SSCI一区，第一作者，合作者：Long HAO。
+- 2023年，“Association Between Temporary Employment and Gradient Health Outcomes Among Chinese Workers”，*Asia Pacific Journal of Public Health*，SSCI三区，通讯作者，合作者：Long HAO。
+- 2022年，“Enjoying the Fruit of Development? Working Conditions and the Earnings of Low-skilled Internal Migrants in China across Two Decades (1993–2015)”，*Journal of Ethnic and Migration Studies*，SSCI一区，第二作者，合作者：Julia WANG、Ngai PUN。
+- 2019年，《社会转型与贫困蜕变——基于香港与内地城市微观数据的比较研究》，《江苏社会科学》第2期，CSSCI来源刊物，合作者：刘祖云。
+- 2017年，《社会运动的理论解读与香港社会运动的历史演变》，《学术研究》第11期，CSSCI来源刊物，合作者：刘祖云，获《台·港·澳研究》全文转载。
+
+## 智库成果
+
+- 2026年3月，《持续深化为基层减负和赋能 进一步完善村级议事协商机制》，刊发于中共江苏省委研究室内参《动态研究与决策建议》，第一作者，合作者：许芸，分送省委常委、省人大常委会党组成员、副省长、省政协党组成员及各设区市委书记、市长。
+- 2026年1月，《关于完善警民协同紧急救助护送机制的政策建议》，刊发于民盟江苏省委员会《议政专报》，共同第一作者，合作者：许芸，获江苏省副省长胡彬郴同志肯定性批示。
+- 2018年，《警惕“在职贫穷”成为香港社会风险之源》，《粤港澳研究专报》第23期，获中共中央办公厅采用，合作者：黎熙元。
+
+## 项目基金
+
+- 2023年10月至今，主持课题，“全球城市视野下香港在职贫困问题研究”，国家社会科学基金后期资助项目，批准号：23FSHB017，在研，25万元。
+- 2021年8月至2025年6月，主持课题，“新就业形势下城市在职贫困发生机制、影响效应及治理路径研究”，教育部人文社会科学青年基金，批准号：21YJC840010，已结题，8万元。
+- 2022年6月至2025年6月，主持课题，“新时代江苏城乡居民灵活就业质量提升路径研究”，江苏省社会科学基金青年项目，批准号：22SHC002，已结题，5万元。
+- 2020年11月至2022年11月，主持课题，“渐进式市场转型视角下江苏城市青年不稳定就业成因及影响研究”，江苏高校哲学社会科学研究一般项目，批准号：2020SJA0252，已结题，1万元。
+- 2025年至今，主持课题，“数智化产教融合提升大学生就业能力路径研究”，南京财经大学教改课题一般项目，批准号：XJWC3202511，0.5万元。
+- 2023年11月至2024年11月，主持课题，“社会调查课程讲好中国故事的案例教学策略研究”，南京财经大学教改课题一般项目，批准号：JGY2023053，已结题，0.5万元。
+- 2020年11月至2022年10月，主持课题，“嵌入开源可视化技术的定量方法类课程设计与研究”，南京财经大学教改课题一般项目，批准号：JGY20053，已结题，0.5万元。
+- 2018年至2019年，主持课题，“多维视角下的特大城市在职贫困研究：基于香港综合数据的分析（1986—2016）”，北京大学—林肯研究院博士论文奖学金项目，批准号：DS07-20180901-LJ，已结项，4万元。
+- 2018年至2019年，主持课题，“全球城市视野下的香港在职贫困研究”，霍英东基金会博士生创新研究资助计划，批准号：99132-3030061，已结项，3万元。
+
+## 荣誉奖励
+
+- 2021、2023、2024、2025年，获南京财经大学“先进工作者”称号，南京财经大学。
+- 2025年，指导学生项目《后浪寻岸：绩效时代高校学生学业倦怠的生成机制与应对策略研究》获江苏省大学生创新创业训练计划项目立项，江苏省教育厅，1/1。
+- 2024年，指导本科毕业论文《野百合焉有春天？童年留守经历对成年期职业表现的长期效应研究》获江苏省普通高等学校优秀本科毕业论文（设计），江苏省教育厅，1/1。
+- 2023年，论文《非稳定就业恶化城市居民劳动处境了吗？一项中国与日本的比较研究》获江苏省哲学社会科学界第十六届学术大会优秀论文二等奖，江苏省哲学社会科学界联合会，1/1。
+- 2023年，指导本科毕业论文《今宵多珍重：青年群体享乐消费的社会心理效应研究》获南京财经大学优秀本科毕业论文（设计），南京财经大学，1/1。
+- 2023年，指导本科毕业论文《新就业形态女性从业者的劳动权益保障和社会支持研究》获南京财经大学团队优秀本科毕业论文（设计），3/5。
+- 2022年，入选南京财经大学“青年学者”支持计划，南京财经大学。
+- 2022年，指导学生项目《爱的传递——福泽基金会为慈善助力》获南京财经大学第八届“互联网+”大学生创新创业大赛校赛三等奖，南京财经大学，1/1。
+- 2022年，指导学生作品《拒绝“套路”——“套路贷”犯罪的防控研究》，获第十届“挑战杯”南京财经大学大学生课外学术科技作品竞赛“优秀指导老师”，南京财经大学，1/1。
+- 2022年，指导本科毕业论文《疫情防控常态化下社会工作的介入空间和专业优势研究》获南京财经大学团队优秀本科毕业论文（设计），3/3。
+- 2021年，指导学生作品《法社会学视阈下套路贷犯罪的防控与治理》获第十七届“挑战杯”全国大学生课外学术科技作品竞赛江苏省选拔赛一等奖，中国共青团江苏省委员会，2/2。
+- 2021年，指导本科毕业论文《颜值何价？城市劳动者的迷情资本与劳动力市场回报研究》获南京财经大学优秀本科毕业论文（设计），南京财经大学，1/1。
+- 2020年，入选江苏省“双创博士”人才计划，中共江苏省委组织部等。
+
+## 培训经历
+
+- 2018年8月，Causal Inference and Causal Mediation Analysis，北京大学—密歇根大学联合学院，获结业证书。
+- 2017年8月，Advanced Quantitative Methodology，北京大学—密歇根大学联合学院，获结业证书。
+
+## 统计技术
+
+- R，Stata，QGIS，UCNET，NetLogo，\\(\\LaTeX\\)。
+
+{{< music-playlist playlist="homepage" autoplay="true" loop="all" order="list" volume="0.5" list-folded="true" list-max-height="180" >}}

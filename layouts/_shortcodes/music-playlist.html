@@ -1,0 +1,19 @@
+{{- $playlistName := .Get "playlist" | default "homepage" -}}
+{{- $tracks := index .Site.Data.music_playlists $playlistName -}}
+{{- if not $tracks -}}
+  {{- errorf "Music playlist %q was not found" $playlistName -}}
+{{- end -}}
+
+<div class="js-music-playlist"
+  data-autoplay="{{ .Get "autoplay" | default "false" }}"
+  data-list-folded="{{ .Get "list-folded" | default "false" }}"
+  data-list-max-height="{{ .Get "list-max-height" | default "180" }}"
+  data-loop="{{ .Get "loop" | default "all" }}"
+  data-order="{{ .Get "order" | default "list" }}"
+  data-storage-name="{{ .Get "storage-name" | default "sociological-lab-playlist" }}"
+  data-theme="{{ .Get "theme" | default "#448aff" }}"
+  data-volume="{{ .Get "volume" | default "0.5" }}">
+  <script class="music-playlist-data" type="application/json">{{ $tracks | jsonify | safeHTML }}</script>
+</div>
+
+{{- .Page.Store.SetInMap "scParams" "music" true -}}

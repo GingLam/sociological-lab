@@ -191,6 +191,24 @@
   font-size: 15px;
 }
 
+/* 简介页开头的个人照片：保留原始比例，桌面端适度收敛，移动端自适应。 */
+.about-profile-photo {
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.about-profile-photo img {
+  display: inline-block;
+  width: 293px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 仅简介页隐藏音乐播放器下方的文章页脚分割线。 */
+.post-content.hide-footer-line .post-footer > hr {
+  display: none;
+}
+
 /* 覆盖印象笔记残留的局部 14/15/16px 行内字号，使导入正文统一为 15px。 */
 .posts-expand .post-body .yinxiang-note [style*="font-size"] {
   font-size: 15px !important;
@@ -384,7 +402,34 @@
   border-bottom-color: #eee !important;
 }
 
-/* 左侧“文章”子菜单加快展开与收起，但不改变原有折叠逻辑。 */
+/* 个人信息卡片：社交链接与友情链接共用两列网格，使两行左边缘严格对齐。 */
+.sidebar-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: center;
+  column-gap: 14px;
+  row-gap: 6px;
+  margin-top: 5px;
+}
+
+.sidebar-links-grid-item {
+  border-bottom: 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.sidebar-links-grid-item .fa,
+.sidebar-links-grid-item .fab,
+.sidebar-links-grid-item .far,
+.sidebar-links-grid-item .fas {
+  margin-right: 2px;
+}
+
+.sidebar-links-grid-item:hover {
+  border-bottom: 0;
+}
+
+/* 左侧折叠菜单加快展开与收起，但不改变原有折叠逻辑。 */
 .menu-children,
 .menu-children.expand {
   transition: max-height 0.35s ease-in-out !important;
