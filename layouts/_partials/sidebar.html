@@ -3,17 +3,23 @@
   <span class="toggle-line"></span>
   <span class="toggle-line"></span>
 </div>
-{{ $tocEnable := and .IsPage .Params.toc | default .Site.Params.toc.enable }}
+{{ $overviewOnly := default false .Params.sidebaroverviewonly }}
+{{ $tocEnable := and .IsPage (.Params.toc | default .Site.Params.toc.enable) }}
+{{ if $overviewOnly }}
+  {{ $tocEnable = false }}
+{{ end }}
 {{ $tocNumber := .Site.Params.toc.number }}
 {{ if isset .Params "tocnumber" }}
   {{ $tocNumber = index .Params "tocnumber" }}
 {{ end }}
 <aside class="sidebar">
-  <div class="sidebar-inner {{ if $tocEnable }}sidebar-nav-active sidebar-toc-active{{ else }}sidebar-overview-active{{ end }}">
-    <ul class="sidebar-nav">
+  <div class="sidebar-inner {{ if $overviewOnly }}sidebar-nav-active sidebar-overview-active{{ else if $tocEnable }}sidebar-nav-active sidebar-toc-active{{ else }}sidebar-overview-active{{ end }}">
+    <ul class="sidebar-nav{{ if $overviewOnly }} sidebar-nav-overview-only{{ end }}">
+      {{ if not $overviewOnly }}
       <li class="sidebar-nav-toc">
         {{ T "Sidebar.label.toc" }}
       </li>
+      {{ end }}
       <li class="sidebar-nav-overview">
         {{ T "Sidebar.label.overview" }}
       </li>

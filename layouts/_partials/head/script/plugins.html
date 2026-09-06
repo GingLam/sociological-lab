@@ -1,5 +1,6 @@
-{{/* 首页分页也可能直接展示文章代码块，因此同样加载代码块工具栏。 */}}
-{{ if or .IsHome (and .IsPage (.Store.Get "codeblock")) }}
+{{/* 首页与文章 Section 分页都会直接展示文章代码块，因此同样加载代码块工具栏。 */}}
+{{ $isPostList := and (eq .Kind "section") (eq .Section "post") }}
+{{ if or .IsHome $isPostList (and .IsPage (.Store.Get "codeblock")) }}
   {{ partial "_funs/get_plugin.html" (dict "ctx" . "class" "others" "plugin" "clipboard.js") }}
 {{ end }}
 

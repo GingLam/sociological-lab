@@ -6,6 +6,7 @@ lastmod: 2022-06-09T20:12:52+08:00
 
 math: mathjax
 tocnumber: false
+sidebaroverviewonly: true
 hidefooterline: true
 share: false
 reward: false

@@ -238,19 +238,29 @@
   border-color: #000;
 }
 
-/* 桌面端分类页较短时，由文章清单卡片填满剩余高度，避免分页前出现大块空白。 */
+/* 桌面端紧凑列表较短时，由清单卡片填满左栏高度，避免分页前出现大块空白。 */
 @media (min-width: 992px) {
-  .main-inner.categories.posts-collapse {
+  .main-inner.categories.posts-collapse,
+  .main-inner.archive.posts-collapse {
     display: flex;
     flex-direction: column;
   }
 
-  .main-inner.categories.posts-collapse > .post-block {
+  .main-inner.categories.posts-collapse > .post-block,
+  .main-inner.archive.posts-collapse > .post-block {
     flex: 1 0 auto;
   }
 
-  .main-inner.categories.posts-collapse > .pagination {
+  .main-inner.categories.posts-collapse > .pagination,
+  .main-inner.archive.posts-collapse > .pagination {
     margin-top: 12px;
+  }
+}
+
+/* 移动端与平板端：子菜单展开后让导航栏随内容增高，避免归档分类被固定高度裁切。 */
+@media (max-width: 991px) {
+  body.site-nav-on .site-nav {
+    height: auto;
   }
 }
 
@@ -400,6 +410,13 @@
 
 :root[data-theme="dark"] .sidebar-nav li:hover {
   border-bottom-color: #eee !important;
+}
+
+/* 简介页仅显示站点概览；唯一标签无需再承担栏目切换功能。 */
+.sidebar-nav.sidebar-nav-overview-only .sidebar-nav-overview {
+  margin-left: 0;
+  cursor: default;
+  pointer-events: none;
 }
 
 /* 个人信息卡片：社交链接与友情链接共用两列网格，使两行左边缘严格对齐。 */
