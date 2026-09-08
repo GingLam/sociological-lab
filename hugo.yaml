@@ -219,20 +219,45 @@ menus:
       name: 归档
       pre: angles-down
       weight: 3
+    - identifier: weekly-2026-spring
+      name: 26春每周资讯推送
+      pageRef: /categories/26春每周资讯推送
+      weight: 1
+      parent: example
+    - identifier: weekly-2025-autumn
+      name: 25秋每周资讯推送
+      pageRef: /categories/25秋每周资讯推送
+      weight: 2
+      parent: example
+    - identifier: weekly-2025-spring
+      name: 25春每周资讯推送
+      pageRef: /categories/25春每周资讯推送
+      weight: 3
+      parent: example
+    - identifier: weekly-2024-autumn
+      name: 24秋每周资讯推送
+      pageRef: /categories/24秋每周资讯推送
+      weight: 4
+      parent: example
+    - identifier: weekly-2024-spring
+      name: 24春每周资讯推送
+      pageRef: /categories/24春每周资讯推送
+      weight: 5
+      parent: example
     - identifier: stata-blog
       name: Stata软件应用
       pageRef: /categories/软件应用-stata
-      weight: 1
+      weight: 6
       parent: example
     - identifier: spss-blog
       name: SPSS软件应用
       pageRef: /categories/软件应用-spss
-      weight: 2
+      weight: 7
       parent: example
     - identifier: system-archive
       name: 系统存档
       pageRef: /categories/系统存档
-      weight: 3
+      weight: 8
       parent: example
     #  - identifier: commonweal
     #   name: 公益 404

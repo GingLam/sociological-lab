@@ -16,7 +16,6 @@ tags:
 
 url: demo/hello-world.html
 toc: true
-weight: 2
 ---
 
 > Use the keyword `weight` to top the article.

@@ -17,7 +17,6 @@ tags:
 byAi: true
 url: demo/hello-world.html
 toc: true
-weight: 2
 ---
 
 > “使用 `weight` 关键字置顶文章。”

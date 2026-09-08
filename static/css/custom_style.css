@@ -228,6 +228,41 @@
   font-size: 20px;
 }
 
+/* 每周资讯正文不使用两端对齐，避免标题与长网址之间被强行拉出大段空白。 */
+.posts-expand .post-body.weekly-news {
+  text-align: left;
+}
+
+/* 每周资讯的“导读／推荐语”与清单圆点平齐，并统一为正文大小和中性灰色。 */
+.posts-expand .post-body.weekly-news li > .post-alert-info {
+  margin-left: -1em;
+}
+
+.posts-expand .post-body.weekly-news .post-alert-info {
+  border-left-color: #555;
+  color: #555;
+  font-size: 15px;
+}
+
+.posts-expand .post-body.weekly-news .post-alert-info .post-alert-title,
+.posts-expand .post-body.weekly-news .post-alert-info .post-alert-title i,
+.posts-expand .post-body.weekly-news .post-alert-info .post-alert-title span {
+  color: #555;
+  font-size: 15px;
+}
+
+.posts-expand .post-body.weekly-news .post-alert-info .post-alert-content {
+  font-size: 15px;
+}
+
+:root[data-theme="dark"] .posts-expand .post-body.weekly-news .post-alert-info,
+:root[data-theme="dark"] .posts-expand .post-body.weekly-news .post-alert-info .post-alert-title,
+:root[data-theme="dark"] .posts-expand .post-body.weekly-news .post-alert-info .post-alert-title i,
+:root[data-theme="dark"] .posts-expand .post-body.weekly-news .post-alert-info .post-alert-title span {
+  border-left-color: #aaa;
+  color: #aaa;
+}
+
 /* 页码预留透明四边框，悬停时显示完整黑色方框且不发生位移。 */
 .pagination .page-number {
   border: 1px solid transparent;
