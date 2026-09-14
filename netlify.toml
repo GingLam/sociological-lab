@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = 'hugo --gc --minify --baseURL "${URL}"'
+command = "hugo --gc --minify"
 
 [build.environment]
 HUGO_VERSION = "0.154.5"
@@ -10,3 +10,12 @@ TZ = "Asia/Shanghai"
 [functions]
 directory = "netlify/functions"
 node_bundler = "esbuild"
+
+# Public third-party assets are shared by both the custom domain and the
+# default Netlify subdomain. Allow anonymous cross-origin script and font loads.
+[[headers]]
+for = "/js/3rd/*"
+
+  [headers.values]
+  Access-Control-Allow-Origin = "*"
+  Cross-Origin-Resource-Policy = "cross-origin"
