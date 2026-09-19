@@ -23,7 +23,11 @@
     {{ if isset .ctx.Params "tocnumber" }}
       {{ $tocNumber = index .ctx.Params "tocnumber" }}
     {{ end }}
-    <div class="post-body{{ if and $tocEnable $tocNumber }} autonumber{{ end }}{{ if .ctx.Params.weeklynews }} weekly-news{{ end }}" itemprop="articleBody">
+    {{ $isSocialResearch := false }}
+    {{ with .ctx.Params.categories }}
+      {{ $isSocialResearch = in . "社科研究记录" }}
+    {{ end }}
+    <div class="post-body{{ if and $tocEnable $tocNumber }} autonumber{{ end }}{{ if .ctx.Params.weeklynews }} weekly-news{{ end }}{{ if $isSocialResearch }} social-research-record{{ end }}" itemprop="articleBody">
       {{ partial "post/body.html" (dict "ctx" .ctx "IsHome" .IsHome) }}
     </div>
     <footer class="post-footer">

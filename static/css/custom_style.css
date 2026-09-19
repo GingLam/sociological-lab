@@ -234,6 +234,11 @@
   text-align: left;
 }
 
+/* 社科研究记录包含大量中英文混排，左对齐可避免两端对齐拉大英文词间距。 */
+.posts-expand .post-body.social-research-record {
+  text-align: left;
+}
+
 /* 每周资讯的“导读／推荐语”与清单圆点平齐，并统一为正文大小和中性灰色。 */
 .posts-expand .post-body.weekly-news li > .post-alert-info {
   margin-left: -1em;

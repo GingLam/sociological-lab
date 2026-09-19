@@ -35,7 +35,7 @@ Edwin Jenner博士在丧尸天劫降临后的生活与其他人十分不同。�
 
 **命题2：在快速分裂的社会变革面前，人们失去的身份依赖越多，他们所受积极影响的来源便会越来越弱，因此自杀的可能性就越大。**
 
-**Proposition 2: The more identity attachments lost in the face of rapid disintegrative societal change, the  weaker the sources for positive affect will be and, therefore, the greater the vulnerability to suicide.**
+**Proposition 2: The more identity attachments lost in the face of rapid disintegrative societal change, the weaker the sources for positive affect will be and, therefore, the greater the vulnerability to suicide.**
 
 ## 案例对比，提出新理论
 
