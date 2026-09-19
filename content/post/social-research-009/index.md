@@ -18,7 +18,7 @@ draft: false
 
 ![文章配图1](image-01.jpg)
 
-<div align=center>**以上分别是英文原版、台湾繁体版和大陆简体版的图书封面**</div>
+<div align="center"><strong>以上分别是英文原版、台湾繁体版和大陆简体版的图书封面</strong></div>
 
 
 下文是我对《[纽约时报](https://www.nytimes.com/2015/03/08/books/review/our-kids-by-robert-d-putnam.html)》书评的翻译 。

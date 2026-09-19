@@ -14,7 +14,7 @@ draft: false
 
 ![文章配图1](image-01.jpg)
 
-从简历上看，这位青年社会学家在美国求学前有过7年的时政记者从业经历。2008年博士毕业后，Son以一系列高质量论文在5年时间里取得国立新加坡大学终身职。由博士论文改编的专著***Social Capital and Institutional Constraints: A Comparative Analysis of China, Taiwan, and the U.S.***于2013年由Routledge出版。
+从简历上看，这位青年社会学家在美国求学前有过7年的时政记者从业经历。2008年博士毕业后，Son以一系列高质量论文在5年时间里取得国立新加坡大学终身职。由博士论文改编的专著<strong><em>Social Capital and Institutional Constraints: A Comparative Analysis of China, Taiwan, and the U.S.</em></strong>于2013年由Routledge出版。
 
 本文抽取原著第三章的研究设计部分进行介绍。
 
@@ -184,4 +184,3 @@ draft: false
 
 
 ![文章配图5](image-05.jpg)
-

@@ -126,6 +126,7 @@
 /* 文章页脚统一为黑、白、灰配色。 */
 .post-copyright {
   border-left-color: #222 !important;
+  text-align: left !important;
 }
 
 .reward-container button {

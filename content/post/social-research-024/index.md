@@ -25,6 +25,8 @@ draft: false
 <!--more-->
 
 
-<div align=center><iframe width="800" height="450" src="https://www.youtube.com/embed/EG2iU92_FKE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<div align=center>
-***Ashley Mears在Youtube的访谈：Fashion Models and "Bodily Capital"（须挂梯子）。***
+<div align="center">
+<iframe width="800" height="450" src="https://www.youtube.com/embed/EG2iU92_FKE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div align="center"><strong><em>Ashley Mears在Youtube的访谈：Fashion Models and "Bodily Capital"（须挂梯子）。</em></strong></div>
