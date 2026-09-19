@@ -254,10 +254,15 @@ menus:
       pageRef: /categories/软件应用-spss
       weight: 7
       parent: example
+    - identifier: social-research-notes
+      name: 社科研究记录
+      pageRef: /categories/社科研究记录
+      weight: 8
+      parent: example
     - identifier: system-archive
       name: 系统存档
       pageRef: /categories/系统存档
-      weight: 8
+      weight: 9
       parent: example
     #  - identifier: commonweal
     #   name: 公益 404
