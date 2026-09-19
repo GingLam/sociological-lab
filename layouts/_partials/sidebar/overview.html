@@ -45,14 +45,17 @@
     {{ $langCode = "zh-hant" }}
   {{ end }}
   {{ $ccText := $.Site.Params.creativeCommons.license | upper }}
-  {{ $ccLink := printf "https://creativecommons.org/licenses/%s/4.0/deed.%s" ( $ccText | lower) $langCode }}
+  {{ $ccDisplay := printf "CC %s 4.0" $ccText }}
+  {{ $ccLink := $.Site.Params.creativeCommons.url | default (printf "https://creativecommons.org/licenses/%s/4.0/deed.%s" ( $ccText | lower) $langCode) }}
   {{ $imgName := replace .license "-" "_" }}
   {{ if eq $ccText "CC0" "CC-ZERO" }}
+    {{ $ccDisplay = "CC0 1.0" }}
     {{ $imgName = "cc_zero" }}
     {{ $ccLink = printf "https://creativecommons.org/publicdomain/zero/1.0/deed.%s" $langCode }}
   {{ end }}
+  {{ $ccIcon := $.Site.Params.creativeCommons.icon | default (printf "/imgs/cc/%s/%s.svg" .size $imgName) }}
   <a href="{{ $ccLink }}" class="cc-opacity" rel="noopener" target="_blank" title="{{ T "Sidebar.label.ccommons" }}">
-    <img src="/imgs/img-lazy-loading.gif" data-src="/imgs/cc/{{ .size }}/{{ $imgName }}.svg" alt="{{ T "Sidebar.label.ccommons" }}">
+    <img src="/imgs/img-lazy-loading.gif" data-src="{{ $ccIcon }}" alt="{{ $ccDisplay }}">
   </a>
 </div>
 {{ end }}

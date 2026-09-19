@@ -331,10 +331,14 @@ params:
   creativeCommons:
     # 可选配置： by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | cc-zero
     # Available values: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | cc-zero
-    license: by-nc-sa
+    license: by-nc-nd
     # 可选配置： big | small
     # Available values: big | small
     size: big
+    # 全站许可证目标页（中文简体）
+    url: https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans
+    # 站点自定义许可证图标（与原 big 图标保持 120:42 的宽高比）
+    icon: /imgs/cc/Cc_by-nc-nd_icon.svg.webp
     # 侧边栏显示
     # Show in sidebar
     sidebar: true

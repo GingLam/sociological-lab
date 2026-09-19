@@ -25,22 +25,25 @@
     {{ end }}
     {{ $cc := cond (isset .Params "license") .Params.license .Site.Params.creativeCommons.license }}
     {{ $ccText := $cc | upper }}
-    {{ $ccUrl := printf "https://creativecommons.org/licenses/%s/4.0/deed.%s" ($ccText | lower) $langCode }}
+    {{ $ccDisplay := printf "CC %s 4.0" $ccText }}
+    {{ $ccUrl := .Site.Params.creativeCommons.url | default (printf "https://creativecommons.org/licenses/%s/4.0/deed.%s" ($ccText | lower) $langCode) }}
     {{ $imgName := replace $cc "-" "_" }}
     {{ if eq $ccText "CC0" "CC-ZERO" }}
       {{ $ccText = "CC0" }}
+      {{ $ccDisplay = "CC0 1.0" }}
       {{ $imgName = "cc_zero" }}
       {{ $ccUrl = printf "https://creativecommons.org/publicdomain/zero/1.0/deed.%s" $langCode }}
     {{ end }}
+    {{ $ccIcon := .Site.Params.creativeCommons.icon | default (printf "/imgs/cc/%s/%s.svg" .Site.Params.creativeCommons.size $imgName) }}
     <li class="post-copyright-license">
       <strong>{{ print (T "PostCopyRight.license.title") (T "Symbol.colon") }} </strong>
-      {{ $ccLink := printf "<a target='_blank' href='%s'>%s</a>" $ccUrl $ccText }}
+      {{ $ccLink := printf "<a target='_blank' href='%s'>%s</a>" $ccUrl $ccDisplay }}
       {{ printf (T "PostCopyRight.license.content") $ccLink | safeHTML }}
     </li>
     <li>
       <div class="license-icons">
         <a href="{{ $ccUrl }}" target="_blank">
-          <img src="/imgs/cc/big/{{ $imgName }}.svg" alt="{{ $ccText }}" title="{{ $ccText }}">
+          <img src="{{ $ccIcon }}" alt="{{ $ccDisplay }}" title="{{ $ccDisplay }}">
         </a>
         {{ $byAi := cond (isset .Params "byai") .Params.byAi .Site.Params.creativeCommons.byAi }}
         {{ if not $byAi }}
