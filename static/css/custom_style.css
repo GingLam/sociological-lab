@@ -5,6 +5,25 @@
   --body-bg-color: #e5e5e5;
 }
 
+/*
+ * 固定主题的排版基准，避免浏览器默认字号差异放大使用 em 的侧栏元素。
+ * 正文、菜单和标题仍由下方既有的 px 规则分别控制。
+ */
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-size: 16px;
+}
+
+.header,
+.sidebar {
+  font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+}
+
 .mydefined {
   font-size: 0.65em;
   color: #ed6c24;
