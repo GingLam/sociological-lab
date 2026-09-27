@@ -95,6 +95,6 @@ url: about.html
 
 ## 统计技术
 
-- R，Stata，QGIS，UCINET，NetLogo，\\(\\LaTeX\\)。
+- R，Stata，QGIS，UCINET，NetLogo，\\(\\LaTeX\\)
 
 {{< music-playlist playlist="homepage" autoplay="true" loop="all" order="list" volume="0.5" list-folded="true" list-max-height="180" >}}
