@@ -99,6 +99,6 @@ url: about.html
 
 ## 软件开发
 
-- SPSS Studio：一个基于Visual Studio Code的IBM SPSS Statistics集成式开发、执行与解释环境，支持专业语法高亮与补全、计算引擎链接与执行、数据集管理与分析以及 AI 问答交互 [Install](https://marketplace.visualstudio.com/items?itemName=JingLIN.spss-studio)。
+- <strong>SPSS Studio：</strong>一个基于Visual Studio Code的IBM SPSS Statistics集成式开发、执行与解释环境，支持专业语法高亮与补全、计算引擎链接与执行、数据集管理与分析以及 AI 问答交互 [<a href="https://marketplace.visualstudio.com/items?itemName=JingLIN.spss-studio">Install</a>]。
 
 {{< music-playlist playlist="homepage" autoplay="true" loop="all" order="list" volume="0.5" list-folded="true" list-max-height="180" >}}
