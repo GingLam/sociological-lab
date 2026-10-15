@@ -30,7 +30,8 @@
         container.aplayer = new window.APlayer({
           container,
           audio,
-          autoplay: parseBoolean(container.dataset.autoplay),
+          // Playback must start only after an explicit visitor interaction.
+          autoplay: false,
           listFolded: parseBoolean(container.dataset.listFolded),
           listMaxHeight: Number.isFinite(requestedListHeight) ? requestedListHeight : 180,
           loop: container.dataset.loop || 'all',
